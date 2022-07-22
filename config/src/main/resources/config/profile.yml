@@ -4,8 +4,8 @@ spring:
       on-profile:
         - dev
   datasource:
-    driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://profile_db:3306/profile?createDatabaseIfNotExist=true
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/profile?createDatabaseIfNotExist=true
     username: root
     password: root
   jpa:
@@ -13,6 +13,8 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
+server:
+  port: 8080
 ---
 spring:
   config:
@@ -29,3 +31,5 @@ spring:
     properties:
       hibernate:
         dialect: ${HIBERNATE_DIALECT}
+server:
+  port: ${SERVER_PORT}
