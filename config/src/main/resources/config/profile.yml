@@ -22,14 +22,14 @@ spring:
       on-profile:
         - prod
   datasource:
-    driverClassName: ${DRIVER_CLASS_NAME}
-    url: ${CONNECTION_URL}
-    username: ${USERNAME}
-    password: ${PASSWORD}
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://profiledb:3310/profile?createDatabaseIfNotExist=true
+    username: root
+    password: root
   jpa:
-    hibernate.ddl-auto: ${HIBERNATE_DDL_AUTO}
+    hibernate.ddl-auto: update
     properties:
       hibernate:
-        dialect: ${HIBERNATE_DIALECT}
+        dialect: org.hibernate.dialect.MySQL8Dialect
 server:
-  port: ${SERVER_PORT}
+  port: 8081
