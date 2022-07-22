@@ -1,0 +1,31 @@
+spring:
+  config:
+    activate:
+      on-profile:
+        - dev
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://profile_db:3306/profile?createDatabaseIfNotExist=true
+    username: root
+    password: root
+  jpa:
+    hibernate.ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+---
+spring:
+  config:
+    activate:
+      on-profile:
+        - prod
+  datasource:
+    driverClassName: ${DRIVER_CLASS_NAME}
+    url: ${CONNECTION_URL}
+    username: ${USERNAME}
+    password: ${PASSWORD}
+  jpa:
+    hibernate.ddl-auto: ${HIBERNATE_DDL_AUTO}
+    properties:
+      hibernate:
+        dialect: ${HIBERNATE_DIALECT}
